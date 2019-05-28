@@ -5,7 +5,7 @@ public class Task04 {
         double arithmeticMean = NumberLogic.calcArithmeticMean(number);
         double geometricMean = NumberLogic.calcGeometricMean(number);
 
-        System.out.printf("Arithmetic mean = %f\n", arithmeticMean);
-        System.out.printf("Geometric mean = %f", geometricMean);
+        Printer.print("Arithmetic mean = " + arithmeticMean);
+        Printer.print("Geometric mean = " + geometricMean);
     }
 }
