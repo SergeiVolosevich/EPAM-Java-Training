@@ -2,4 +2,4 @@ target
 .idea
 *.iml
 *.class
-.out
+out
