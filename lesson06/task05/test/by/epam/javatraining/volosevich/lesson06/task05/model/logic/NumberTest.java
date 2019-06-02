@@ -33,4 +33,11 @@ public class NumberTest {
 
         assertFalse(Number.isPrimeNumber(number));
     }
+
+    @Test
+    public void testIsPrimeNumberByNegative() {
+        int number = -20;
+
+        assertFalse(Number.isPrimeNumber(number));
+    }
 }
