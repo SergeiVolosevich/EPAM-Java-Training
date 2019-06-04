@@ -5,7 +5,7 @@ import by.epam.javatraining.volosevich.lesson06.task01.model.data.Data;
 import java.util.Random;
 
 public class Coin {
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     private Data data = new Data();
 
