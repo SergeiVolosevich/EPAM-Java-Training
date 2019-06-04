@@ -25,9 +25,6 @@ public class DragonLogic {
                         (SECOND_AGE_PERIOD - FIRST_AGE_PERIOD) * NUMBER_HEADS_SECOND_PERIOD + NUMBER_HEADS_THIRD_PERIOD
                         * (age - SECOND_AGE_PERIOD);
             }
-
-        } else {
-            return quantityHeads;
         }
         return quantityHeads;
     }
