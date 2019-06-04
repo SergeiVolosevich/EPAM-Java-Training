@@ -17,42 +17,28 @@ public class DragonLogicTest {
     @Test
     public void testCountDragonHeadsInvalidData() {
         int age = -15;
-        int expected = -1;
+        int expected = 0;
         assertEquals(expected, DragonLogic.countDragonHeads(age));
     }
 
     @Test
-    public void testCountDragonHeadsAgeLessTwoHundred() {
-        int age = 199;
-        int expected = 600;
-        assertEquals(expected, DragonLogic.countDragonHeads(age));
-    }
-
-    @Test
-    public void testCountDragonHeadsAgeEqualsTwoHundred() {
+    public void testCountDragonHeadsAgeFirstPeriod() {
         int age = 200;
-        int expected = 602;
+        int expected = 603;
         assertEquals(expected, DragonLogic.countDragonHeads(age));
     }
 
     @Test
-    public void testCountDragonHeadsAgeLessThreeHundred() {
-        int age = 299;
-        int expected = 800;
+    public void testCountDragonHeadsAgeSecondPeriod() {
+        int age = 250;
+        int expected = 703;
         assertEquals(expected, DragonLogic.countDragonHeads(age));
     }
 
     @Test
-    public void testCountDragonHeadsAgeEqualsThreeHundred() {
-        int age = 300;
-        int expected = 801;
-        assertEquals(expected, DragonLogic.countDragonHeads(age));
-    }
-
-    @Test
-    public void testCountDragonHeadsAgeMoreThreeHundred() {
-        int age = 500;
-        int expected = 1001;
+    public void testCountDragonHeadsAgeThirdPeriod() {
+        int age = 350;
+        int expected = 853;
         assertEquals(expected, DragonLogic.countDragonHeads(age));
     }
 
@@ -74,47 +60,31 @@ public class DragonLogicTest {
     @Test
     public void testCountDragonEyesInvalidData() {
         int age = -1;
-        int expected = -2;
+        int expected = 0;
 
         assertEquals(expected, DragonLogic.countDragonEyes(age));
     }
 
     @Test
-    public void testCountDragonEyesAgeLessTwoHundred() {
-        int age = 0;
-        int expected = 6;
+    public void testCountDragonEyesAgeFirstPeriod() {
+        int age = 200;
+        int expected = 1206;
 
         assertEquals(expected, DragonLogic.countDragonEyes(age));
     }
 
     @Test
-    public void testCountDragonEyesAgeEqualsTwoHundred() {
-        int age = 0;
-        int expected = 6;
+    public void testCountDragonEyesAgeSecondPeriod() {
+        int age = 250;
+        int expected = 1406;
 
         assertEquals(expected, DragonLogic.countDragonEyes(age));
     }
 
     @Test
-    public void testCountDragonEyesAgeLessThreeHundred() {
-        int age = 0;
-        int expected = 6;
-
-        assertEquals(expected, DragonLogic.countDragonEyes(age));
-    }
-
-    @Test
-    public void testCountDragonEyesAgeEqualsThreeHundred() {
-        int age = 0;
-        int expected = 6;
-
-        assertEquals(expected, DragonLogic.countDragonEyes(age));
-    }
-
-    @Test
-    public void testCountDragonEyesAgeMoreThreeHundred() {
-        int age = 0;
-        int expected = 6;
+    public void testCountDragonEyesAgeThirdPeriod() {
+        int age = 350;
+        int expected = 1706;
 
         assertEquals(expected, DragonLogic.countDragonEyes(age));
     }
