@@ -19,10 +19,10 @@ public class DragonLogic {
                 quantityHeads = NUMBER_HEADS_START + NUMBER_HEADS_FIRST_PERIOD * age;
             } else if (age <= 300) {
                 return quantityHeads = NUMBER_HEADS_START + FIRST_AGE_PERIOD * NUMBER_HEADS_FIRST_PERIOD +
-                        (age - FIRST_AGE_PERIOD)* NUMBER_HEADS_SECOND_PERIOD;
+                        (age - FIRST_AGE_PERIOD) * NUMBER_HEADS_SECOND_PERIOD;
             } else {
                 return quantityHeads = NUMBER_HEADS_START + FIRST_AGE_PERIOD * NUMBER_HEADS_FIRST_PERIOD +
-                        (SECOND_AGE_PERIOD - FIRST_AGE_PERIOD)* NUMBER_HEADS_SECOND_PERIOD + NUMBER_HEADS_THIRD_PERIOD
+                        (SECOND_AGE_PERIOD - FIRST_AGE_PERIOD) * NUMBER_HEADS_SECOND_PERIOD + NUMBER_HEADS_THIRD_PERIOD
                         * (age - SECOND_AGE_PERIOD);
             }
 
