@@ -5,7 +5,7 @@ import by.epam.javatraining.volosevich.lesson05.task02.view.Printer;
 
 public class Task02 {
     public static void main(String[] args) {
-        char symbol1 = 'A';
+        char symbol1 = 'E';
         char symbol2 = '2';
 
         String trueMessage = "\'" + symbol1 + "\'" + " symbol is a vowel.\n";

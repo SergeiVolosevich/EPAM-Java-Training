@@ -2,7 +2,7 @@ package by.epam.javatraining.volosevich.lesson05.task02.model.logic;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class AlphabetTest {
 
@@ -41,9 +41,8 @@ public class AlphabetTest {
     @Test
     public void testIsVowelSecondVersionUpperCase() {
         char symbol = 'E';
-        boolean expected = true;
 
-        assertEquals(expected, Alphabet.isVowelSecondVersion(symbol));
+        assertTrue(Alphabet.isVowelSecondVersion(symbol));
     }
 
     @Test
