@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Coin {
     private static final Random random = new Random();
+    private static final int NUMBER_OF_SIDES = 2;
 
     private Data data = new Data();
 
@@ -14,7 +15,7 @@ public class Coin {
         int quantityTails = 0;
         if (numberOfFlips >= 0) {
             for (int i = 0; i < numberOfFlips; i++) {
-                if (random.nextInt() < 0) {
+                if (random.nextInt(NUMBER_OF_SIDES) == 0) {
                     quantityHeads++;
                 } else {
                     quantityTails++;
