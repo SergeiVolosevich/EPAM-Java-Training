@@ -3,9 +3,9 @@ package by.epam.javatraining.volosevich.maintask01.model.logic;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
+
+import static org.junit.Assert.*;
 
 
 public class VectorTest {
@@ -20,6 +20,7 @@ public class VectorTest {
     @Before
     public void setUp() throws Exception {
         vector = new Vector(100);
+        vector.fillRandomNumbers();
         zeroVector = new Vector(0);
         manualVector = new Vector();
 
