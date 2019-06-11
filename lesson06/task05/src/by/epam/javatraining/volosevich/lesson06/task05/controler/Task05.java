@@ -5,7 +5,7 @@ import by.epam.javatraining.volosevich.lesson06.task05.view.Printer;
 
 public class Task05 {
     public static void main(String[] args) {
-        int number = 199;
+        int number = 44;
 
         Printer.print("Number = " + number + " is prime - " + Number.isPrimeNumber(number));
     }
