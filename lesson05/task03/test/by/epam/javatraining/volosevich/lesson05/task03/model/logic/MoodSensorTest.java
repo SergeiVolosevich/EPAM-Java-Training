@@ -1,6 +1,5 @@
 package by.epam.javatraining.volosevich.lesson05.task03.model.logic;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
