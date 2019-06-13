@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
+        <param name="encoding" value="UTF-8"/>
+        <param name="append" value="true"/>
+        <param name="maxFileSize" value="1MB"/>
+        <param name="maxBackupIndex" value="5"/>
+        <param name="file" value="doc.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="by.epam.javatraining.volosevich.maintask01.view.Printer">
+        <level value="INFO"/>
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="by.epam.javatraining.volosevich.maintask01.model.logic.Vector">
+        <level value="TRACE"/>
+        <appender-ref ref="file"/>
+        <appender-ref ref="console"/>
+    </logger>
+</log4j:configuration>

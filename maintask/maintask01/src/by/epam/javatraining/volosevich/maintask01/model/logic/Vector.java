@@ -8,6 +8,8 @@
 
 package by.epam.javatraining.volosevich.maintask01.model.logic;
 
+import org.apache.log4j.Logger;
+
 import java.util.Random;
 
 /**
@@ -28,6 +30,8 @@ import java.util.Random;
  */
 
 public class Vector {
+
+    private static final Logger log = Logger.getLogger(Vector.class);
 
     /**
      * Left border value for {@link Random#nextDouble()}.
@@ -84,17 +88,19 @@ public class Vector {
 
     /**
      * Constructs an empty vector with the specified initial capacity.
-     * If {@code numberOfElements} less than zero, constructs with buffer array length.
+     * If {@code capacity} less than zero, constructs with buffer array length.
      *
-     * @param numberOfElements the initial capacity of the vector.
+     * @param capacity the initial capacity of the vector.
      */
-    public Vector(int numberOfElements) {
-        if (numberOfElements > 0 && numberOfElements < MAX_SIZE) {
-            array = new double[numberOfElements];
+    public Vector(int capacity) {
+        if (capacity > 0 && capacity < MAX_SIZE) {
+            array = new double[capacity];
             numOfElem = 0;
+            log.trace("Creating a normal vector.");
         } else {
             array = new double[0];
             numOfElem = 0;
+            log.trace("Creating a zero-length vector. Capacity is not correct.");
         }
     }
 
@@ -136,10 +142,13 @@ public class Vector {
      * {@link Vector#numOfElem number of elements} method return {@link Double#NaN Not a Number}.
      */
     public double valueOf(int index) {
+        log.trace("Entered the method valueOf");
         double result = Double.NaN;
         if (index >= 0 && index < numOfElem) {
+            log.trace("Validation successful, return value");
             return result = array[index];
         }
+        log.trace("Value check failed");
         return result;
     }
 
@@ -150,21 +159,27 @@ public class Vector {
      * @return {@code true} - value inserted in vector, {@code false} - otherwise.
      */
     public boolean add(double value) {
+        log.trace("Entered the method add value");
         boolean result = false;
         if (numOfElem == array.length && numOfElem + INCREASING_VALUE <= MAX_SIZE) {
+            log.trace("Increase size of vector.");
             double[] b = new double[array.length + INCREASING_VALUE];
             for (int i = 0; i < array.length; i++) {
+                log.trace("Adding values.");
                 b[i] = array[i];
             }
             array = b;
             array[numOfElem++] = value;
             result = true;
         } else if (numOfElem + INCREASING_VALUE > MAX_SIZE) {
+            log.trace("Maximum vector size exceeded.");
             return result;
         } else {
+            log.trace("Add value without increasing size of vector.");
             array[numOfElem++] = value;
             result = true;
         }
+        log.trace("Return result");
         return result;
     }
 
@@ -192,9 +207,11 @@ public class Vector {
      *
      * @return max value. If vector {@link Vector#isEmpty() empty}, return - {@link Double#NaN Not a Number}.
      */
-    public double maxValue() {
+    public double searchMaxValue() {
+        log.trace("Entered the method searchValue");
         double max = Double.NaN;
         if (!isEmpty()) {
+            log.trace("Passed a zero-length array test");
             max = array[0];
             for (int i = 1; i < numOfElem; i++) {
                 if (max < array[i]) {
@@ -202,6 +219,7 @@ public class Vector {
                 }
             }
         }
+        log.trace("Return value max element");
         return max;
     }
 
@@ -211,9 +229,11 @@ public class Vector {
      *
      * @return min value. If Vector {@link Vector#isEmpty() empty}, return - {@link Double#NaN Not a Number}.
      */
-    public double minValue() {
+    public double searchMinValue() {
+        log.trace("Entered the method searchMinValue");
         double min = Double.NaN;
         if (!isEmpty()) {
+            log.trace("Passed a zero-length array test");
             min = array[0];
             for (int i = 1; i < numOfElem; i++) {
                 if (min > array[i]) {
@@ -221,6 +241,7 @@ public class Vector {
                 }
             }
         }
+        log.trace("Return value min element");
         return min;
     }
 
@@ -232,14 +253,18 @@ public class Vector {
      * return - {@link Double#NaN Not a Number}.
      */
     public double calcArithmeticAverage() {
+        log.trace("Entered the method calcArithmeticAverage");
         double arithmeticAverage = Double.NaN;
         if (!isEmpty()) {
+            log.trace("Passed a zero-length array test");
             double sum = 0.0;
             for (int i = 0; i < numOfElem; i++) {
                 sum += array[i];
             }
+            log.trace("Calc Arithmetic average.");
             arithmeticAverage = sum / numOfElem;
         }
+        log.trace("Return result.");
         return arithmeticAverage;
     }
 
@@ -250,18 +275,24 @@ public class Vector {
      * return - {@link Double#NaN Not a Number}.
      */
     public double calcGeometricAverage() {
+        log.trace("Entered the method calcGeometricAverage.");
         double geometricAverage = -1;
         if (!isEmpty()) {
+            log.trace("Passed a zero-length array test.");
             double mult = 1.0;
             for (int i = 0; i < numOfElem; i++) {
                 if (array[i] >= 0) {
+                    log.trace("Passed less zero test.");
                     mult *= array[i];
                 } else {
+                    log.trace("Less zero test failed.");
                     return geometricAverage;
                 }
             }
+            log.trace("Calc geometric average.");
             geometricAverage = Math.pow(mult, 1.0 / numOfElem);
         }
+        log.trace("Return value.");
         return geometricAverage;
     }
 
@@ -272,15 +303,20 @@ public class Vector {
      * @return {@code true}  - vector is increasing sequence, {@code false} - otherwise.
      */
     public boolean isIncreasingOrder() {
+        log.trace("Entered the method isIncreasingOrder.");
         boolean result = false;
         if (!isEmpty()) {
+            log.trace("Passed a zero-length array test.");
             for (int i = 1; i < numOfElem; i++) {
                 if (array[i] <= array[i - 1]) {
+                    log.trace("Check values.");
                     return result;
                 }
             }
+            log.trace("Return positive result.");
             result = true;
         }
+        log.trace("Return negative result.");
         return result;
     }
 
@@ -290,15 +326,20 @@ public class Vector {
      * @return {@code true}  - vector is decreasing sequence, {@code false} - otherwise.
      */
     public boolean isDecreasingOrder() {
+        log.trace("Entered the method isDecreasingOrder.");
         boolean result = false;
         if (!isEmpty()) {
+            log.trace("Passed a zero-length array test.");
             for (int i = 1; i < numOfElem; i++) {
                 if (array[i] >= array[i - 1]) {
+                    log.trace("Check values.");
                     return result;
                 }
             }
+            log.trace("Return positive result.");
             result = true;
         }
+        log.trace("Return negative result.");
         return result;
     }
 
@@ -308,13 +349,16 @@ public class Vector {
      * @return index of local max. If method not found local max, index is {@code -1}.
      */
     public int indexOfLocalMax() {
-        int index = -1;
+        log.trace("Entered the method indexOfLocalMax.");
+        int index;
         for (int i = 1; i + 1 < numOfElem; i++) {
             if (array[i] > array[i - 1] && array[i] > array[i + 1]) {
+                log.trace("Find local max.");
                 return index = i;
             }
         }
-        return index;
+        log.trace("Local max not found.");
+        return -1;
     }
 
     /**
@@ -323,19 +367,23 @@ public class Vector {
      * @return index of local min. If method not found local max, index is {@code -1}.
      */
     public int indexOfLocalMin() {
-        int index = -1;
+        log.trace("Entered the method indexOfLocalMin.");
+        int index;
         for (int i = 1; i + 1 < numOfElem; i++) {
             if (array[i] < array[i - 1] && array[i] < array[i + 1]) {
+                log.trace("Find local min.");
                 return index = i;
             }
         }
-        return index;
+        log.trace("Local min not found.");
+        return -1;
     }
 
     /**
      * The method reverses all elements of the vector.
      */
     public void reverseVector() {
+        log.trace("Entered the method reverseVector.");
         int lastIndex = numOfElem - 1;
         for (int i = 0; i != numOfElem / 2; i++) {
             swap(array, i, lastIndex - i);
@@ -349,13 +397,15 @@ public class Vector {
      * @return index of the element found. If method not found element, index is {@code -1}.
      */
     public int linearSearch(double elementToSearch) {
+        log.trace("Entered the method linearSearch.");
         int index;
         for (int i = 0; i < numOfElem; i++) {
             if (array[i] == elementToSearch) {
+                log.trace("Index found.");
                 return index = i;
             }
         }
-
+        log.trace("Value not found.");
         return -1;
     }
 
@@ -371,19 +421,25 @@ public class Vector {
      * @return index of the element found. If method not found element, index is {@code -1}.
      */
     public int binarySearch(double elementToSearch) {
+        log.trace("Entered the method binarySearch");
         int firstIndex = 0;
         int lastIndex = numOfElem - 1;
 
         while (firstIndex <= lastIndex) {
+            log.trace("Calc middle index");
             int middleIndex = (firstIndex + lastIndex) / 2;
             if (array[middleIndex] == elementToSearch) {
+                log.trace("Value found.");
                 return middleIndex;
             } else if (array[middleIndex] < elementToSearch) {
+                log.trace("Reduce the selection in the right side.");
                 firstIndex = middleIndex + 1;
             } else {
+                log.trace("Reduce the selection in the left side.");
                 lastIndex = middleIndex - 1;
             }
         }
+        log.trace("Value not found.");
         return -1;
     }
 
@@ -467,7 +523,7 @@ public class Vector {
     }
 
     /**
-     * Method divides the vector into two pfrts relative to the pivot element. Elements of the left part, relative to
+     * Method divides the vector into two parts relative to the pivot element. Elements of the left part, relative to
      * the reference will be less than the reference, to the right - more
      *
      * @param array buffer in which the components of the vector are stored.
@@ -497,6 +553,7 @@ public class Vector {
      * @param j     index of second element to exchange.
      */
     private static void swap(double[] array, int i, int j) {
+        log.trace("Changing elements.");
         double temp = array[i];
         array[i] = array[j];
         array[j] = temp;

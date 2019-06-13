@@ -57,32 +57,32 @@ public class VectorTest {
     }
 
     @Test
-    public void testMaxValue() {
-        double expected = vector.maxValue();
+    public void testSearchMaxValue() {
+        double expected = vector.searchMaxValue();
         Arrays.sort(arrayToSort);
 
         assertEquals(expected, arrayToSort[arrayToSort.length - 1], 0);
     }
 
     @Test
-    public void testMaxValueByZeroVector() {
+    public void testSearchMaxValueByZeroVector() {
         double result = Double.NaN;
-        double expected = zeroVector.maxValue();
+        double expected = zeroVector.searchMaxValue();
 
         assertEquals(expected, result, 0);
     }
 
     @Test
-    public void testMinValue() {
-        double expected = vector.minValue();
+    public void testSearchMinValue() {
+        double expected = vector.searchMinValue();
         Arrays.sort(arrayToSort);
 
         assertEquals(expected, arrayToSort[0], 0);
     }
 
     @Test
-    public void testMinValueByZeroVector() {
-        double expected = zeroVector.minValue();
+    public void testSearchMinValueByZeroVector() {
+        double expected = zeroVector.searchMinValue();
         double result = Double.NaN;
 
         assertEquals(expected, result, 0);
