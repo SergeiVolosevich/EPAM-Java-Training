@@ -429,7 +429,7 @@ public class Vector {
             log.trace("Calc middle index");
             int middleIndex = (firstIndex + lastIndex) / 2;
             if (array[middleIndex] == elementToSearch) {
-                log.trace("Value found.");
+                log.trace("Value found on index = " + middleIndex);
                 return middleIndex;
             } else if (array[middleIndex] < elementToSearch) {
                 log.trace("Reduce the selection in the right side.");
@@ -448,8 +448,10 @@ public class Vector {
      * This algorithm offers O(n log(n)) performance.
      */
     public void mergeSort() {
+        log.trace("Entered the method mergerSort.");
         double[] arrayWork = new double[numOfElem];
         recMergeSort(array, arrayWork, 0, numOfElem - 1);
+        log.trace("Dividing an array into arrays of length 1.");
     }
 
     /**
@@ -457,12 +459,17 @@ public class Vector {
      */
     private static void recMergeSort(double[] array, double[] workSpace, int start, int end) {
         if (start < end) {
+            log.trace("The array divide into 2 parts.");
             int middle = (start + end) / 2;
+            log.trace("Separation of the left side of the array." + " Start index - " + start + ", end index - " + end);
             recMergeSort(array, workSpace, start, middle);
+            log.trace("Separation of the right side of the array." + " Start index - " + start + ", end index - " + end);
             recMergeSort(array, workSpace, middle + 1, end);
 
+            log.trace("Merge two arrays.");
             merge(array, workSpace, start, middle, end);
         }
+        log.trace("End of sorting one of the parts of the array.");
     }
 
     /**
@@ -475,25 +482,34 @@ public class Vector {
      * @param end       last array element.
      */
     private static void merge(double[] array, double[] workSpace, int start, int middle, int end) {
+        log.trace("Start merging.");
         int i = 0;
         int str = start;
         int midBound = middle + 1;
         int elements = end - start + 1;
         while (start <= middle && midBound <= end) {
+            log.trace("Filling an additional array with sorted values.");
             if (array[start] < array[midBound]) {
+                log.trace("Checking values from 2 arrays, first value = " + array[start] + ", second value = "
+                        + array[midBound]);
+                log.trace("Fill value = " + array[start] + " to additional array.");
                 workSpace[i++] = array[start++];
             } else {
+                log.trace("Fill value = " + array[midBound] + " to additional array.");
                 workSpace[i++] = array[midBound++];
             }
         }
 
         while (start <= middle) {
+            log.trace("Fill the rest of the array " + array[start]);
             workSpace[i++] = array[start++];
         }
         while (midBound <= end) {
+            log.trace("Fill the rest of the array " + array[midBound]);
             workSpace[i++] = array[midBound++];
         }
 
+        log.trace("Filling the values of the main array with the values of the sorted array.");
         for (int j = 0; j < elements; j++) {
             array[str + j] = workSpace[j];
         }
