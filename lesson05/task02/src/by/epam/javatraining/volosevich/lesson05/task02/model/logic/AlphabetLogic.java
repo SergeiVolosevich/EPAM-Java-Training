@@ -18,13 +18,12 @@ public class Alphabet {
 
     public static boolean isVowelSecondVersion(char symbol) {
         symbol = Character.toLowerCase(symbol);
-        boolean result = false;
         for (char vowel : VOWELS) {
             if (symbol == vowel) {
-                result = true;
+                return true;
             }
         }
-        return result;
+        return false;
     }
 
     public static boolean isVowelThirdVersion(char symbol) {
@@ -38,5 +37,10 @@ public class Alphabet {
                 return true;
         }
         return false;
+    }
+
+    public static boolean isVowelFoursVersion(char symbol) {
+        symbol = Character.toLowerCase(symbol);
+        return "aeiou".indexOf(symbol) != -1;
     }
 }

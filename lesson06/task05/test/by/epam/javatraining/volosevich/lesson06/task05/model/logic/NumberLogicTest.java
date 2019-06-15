@@ -4,40 +4,40 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class NumberTest {
+public class NumberLogicTest {
 
     @Test
     public void testIsPrimeNumber() {
         int number = 89;
 
-        assertTrue(Number.isPrimeNumber(number));
+        assertTrue(NumberLogic.isPrimeNumber(number));
     }
 
     @Test
     public void testIsPrimeNumberByCompositeNumber() {
         int number = 44;
 
-        assertFalse(Number.isPrimeNumber(number));
+        assertFalse(NumberLogic.isPrimeNumber(number));
     }
 
     @Test
     public void testIsPrimeNumberByZero() {
         int number = 0;
 
-        assertFalse(Number.isPrimeNumber(number));
+        assertFalse(NumberLogic.isPrimeNumber(number));
     }
 
     @Test
     public void testIsPrimeNumberByOne() {
         int number = 1;
 
-        assertFalse(Number.isPrimeNumber(number));
+        assertFalse(NumberLogic.isPrimeNumber(number));
     }
 
     @Test
     public void testIsPrimeNumberByNegative() {
         int number = -20;
 
-        assertFalse(Number.isPrimeNumber(number));
+        assertFalse(NumberLogic.isPrimeNumber(number));
     }
 }

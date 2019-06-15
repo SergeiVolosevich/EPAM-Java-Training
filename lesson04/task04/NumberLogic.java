@@ -12,7 +12,7 @@ class NumberLogic {
 	number /= 10;
 	int a5 = number % 10;
 	int a6 = number / 10;
-	return (a1 + a2 + a3 + a4 + a5 + a6) / NumberLogic.NUMBER_OF_DIGITS;
+	return (a1 + a2 + a3 + a4 + a5 + a6) / NUMBER_OF_DIGITS;
     }
     
     public static double calcGeometricMean(int number) {
@@ -26,6 +26,6 @@ class NumberLogic {
 	number /= 10;
 	int a5 = number % 10;
 	int a6 = number / 10;
-        return Math.pow((a1 * a2 * a3 * a4 * a5 * a6), 1 / NumberLogic.NUMBER_OF_DIGITS);
+        return Math.pow((a1 * a2 * a3 * a4 * a5 * a6), 1 / NUMBER_OF_DIGITS);
    }
 }

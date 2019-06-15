@@ -4,57 +4,70 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class NumberTest {
+public class NumberLogicTest {
 
     @Test
     public void testIsDigitsEven() {
         int number = 24688;
-        assertTrue(Number.isDigitsEven(number));
+        assertTrue(NumberLogic.isDigitsEven(number));
+    }
+
+    @Test
+    public void testIsDigitsEvenByZero() {
+        int number = 0;
+        assertFalse(NumberLogic.isDigitsEven(number));
     }
 
     @Test
     public void testIsDigitsEvenByNegative() {
-        int number = -1;
-        assertFalse(Number.isDigitsEven(number));
+        int number = -10;
+        assertFalse(NumberLogic.isDigitsEven(number));
     }
 
     @Test
     public void testIsDigitsEvenByBoundaryValue() {
         int number = 10886;
-        assertFalse(Number.isDigitsEven(number));
+        assertFalse(NumberLogic.isDigitsEven(number));
     }
 
     @Test
     public void testIsDigitsEvenByOdd() {
         int number = 135;
-        assertFalse(Number.isDigitsEven(number));
+        assertFalse(NumberLogic.isDigitsEven(number));
     }
 
     @Test
     public void testIsDigitsOdd() {
         int number = 135793;
 
-        assertTrue(Number.isDigitsOdd(number));
+        assertTrue(NumberLogic.isDigitsOdd(number));
+    }
+
+    @Test
+    public void testIsDigitsOddByZero() {
+        int number = 0;
+
+        assertFalse(NumberLogic.isDigitsOdd(number));
     }
 
     @Test
     public void testIsDigitsOddByNegative() {
         int number = -50;
 
-        assertFalse(Number.isDigitsOdd(number));
+        assertFalse(NumberLogic.isDigitsOdd(number));
     }
 
     @Test
     public void testIsDigitsOddByBoundaryValue() {
         int number = 229755;
 
-        assertFalse(Number.isDigitsOdd(number));
+        assertFalse(NumberLogic.isDigitsOdd(number));
     }
 
     @Test
     public void testIsDigitsOddByEven() {
         int number = 24486;
 
-        assertFalse(Number.isDigitsOdd(number));
+        assertFalse(NumberLogic.isDigitsOdd(number));
     }
 }

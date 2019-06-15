@@ -4,14 +4,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class NumberTest {
+public class NumberLogicTest {
 
     @Test
     public void testCalcFactorial() {
         int number = 5;
         double expected = 120;
 
-        assertEquals(expected, Number.calcFactorial(number), .0);
+        assertEquals(expected, NumberLogic.calcFactorial(number), .0);
     }
 
     @Test
@@ -19,7 +19,7 @@ public class NumberTest {
         int number = -5;
         double expected = 0;
 
-        assertEquals(expected, Number.calcFactorial(number), .0);
+        assertEquals(expected, NumberLogic.calcFactorial(number), .0);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class NumberTest {
         int number = 171;
         double expected = 0;
 
-        assertEquals(expected, Number.calcFactorial(number), .0);
+        assertEquals(expected, NumberLogic.calcFactorial(number), .0);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class NumberTest {
         int number = 0;
         double expected = 1;
 
-        assertEquals(expected, Number.calcFactorial(number), .0);
+        assertEquals(expected, NumberLogic.calcFactorial(number), .0);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class NumberTest {
         int number = 1;
         double expected = 1;
 
-        assertEquals(expected, Number.calcFactorial(number), .0);
+        assertEquals(expected, NumberLogic.calcFactorial(number), .0);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class NumberTest {
         int number = 170;
         double expected = 7.257415615307994E306;
 
-        assertEquals(expected, Number.calcFactorial(number), .00);
+        assertEquals(expected, NumberLogic.calcFactorial(number), .00);
     }
 
 }
