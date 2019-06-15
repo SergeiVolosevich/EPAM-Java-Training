@@ -1,6 +1,6 @@
 package by.epam.javatraining.volosevich.lesson05.task02.model.logic;
 
-public class Alphabet {
+public class AlphabetLogic {
 
     private static final char A_LOWER_CASE = 'a';
     private static final char E_LOWER_CASE = 'e';

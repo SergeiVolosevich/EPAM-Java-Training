@@ -15,9 +15,9 @@ public class DragonLogic {
 
         if (age >= 0) {
 
-            if (age <= 200) {
+            if (age <= FIRST_AGE_PERIOD) {
                 quantityHeads = NUMBER_HEADS_START + NUMBER_HEADS_FIRST_PERIOD * age;
-            } else if (age <= 300) {
+            } else if (age <= SECOND_AGE_PERIOD) {
                 return quantityHeads = NUMBER_HEADS_START + FIRST_AGE_PERIOD * NUMBER_HEADS_FIRST_PERIOD +
                         (age - FIRST_AGE_PERIOD) * NUMBER_HEADS_SECOND_PERIOD;
             } else {

@@ -13,15 +13,11 @@ public class MoodSensor {
 
 
     public static String determineMood() {
-        int numberOfMood = RANDOM.nextInt(MOOD_COUNT);
         String emoji = SAD_MOOD;
-
-        if (numberOfMood == 3) {
-            emoji = GOOD_MOOD;
-        } else if (numberOfMood == 2) {
-            emoji = NEUTRAL_MOOD;
-        } else if (numberOfMood == 1) {
-            emoji = EVIL_MOOD;
+        switch (RANDOM.nextInt(MOOD_COUNT)){
+            case 3: emoji = GOOD_MOOD; break;
+            case 2: emoji = NEUTRAL_MOOD; break;
+            case 1: emoji = EVIL_MOOD; break;
         }
         return emoji;
     }

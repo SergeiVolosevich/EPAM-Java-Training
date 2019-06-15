@@ -42,13 +42,6 @@ public class DragonLogicTest {
         assertEquals(expected, DragonLogic.countDragonHeads(age));
     }
 
-    @Test(timeout = 100)
-    public void countDragonHeadsTimeout() {
-        int age = 3000;
-
-        DragonLogic.countDragonHeads(age);
-    }
-
     @Test
     public void testCountDragonEyesAgeZero() {
         int age = 0;
@@ -87,12 +80,5 @@ public class DragonLogicTest {
         int expected = 1706;
 
         assertEquals(expected, DragonLogic.countDragonEyes(age));
-    }
-
-    @Test(timeout = 100)
-    public void testCountDragonEyesTimeout() {
-        int age = 0;
-
-        DragonLogic.countDragonEyes(age);
     }
 }
