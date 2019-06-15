@@ -5,13 +5,12 @@ public class NumberLogic {
 
     public static boolean isPrimeNumber(int number) {
         boolean result = false;
-            for (int i = MIN_PRIME; i < number; i++) {
-                if (number % i == 0) {
-                    return false;
-                }
-                result = true;
+        for (int i = MIN_PRIME; i < number; i++) {
+            if (number % i == 0) {
+                return false;
             }
+            result = true;
+        }
         return result;
     }
-
 }

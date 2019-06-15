@@ -4,12 +4,12 @@ public class NumberLogic {
     public static final int NUMBER_MAX_VALUE_FACTORIAL = 170;
 
     public static double calcFactorial(int number) {
-        double fact = 0;
-        if (number >= 0 && number <= NUMBER_MAX_VALUE_FACTORIAL) {
-            fact = 1E0;
-            for (int i = 2; i <= number; i++) {
-                fact *= i;
-            }
+        if (number < 0) {
+            return 0;
+        }
+        double fact = 1E0;
+        for (int i = 2; i <= number && number <= NUMBER_MAX_VALUE_FACTORIAL; i++) {
+            fact *= i;
         }
         return fact;
     }

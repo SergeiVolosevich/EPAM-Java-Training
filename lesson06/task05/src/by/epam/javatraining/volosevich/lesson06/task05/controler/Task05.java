@@ -1,12 +1,12 @@
 package by.epam.javatraining.volosevich.lesson06.task05.controler;
 
-import by.epam.javatraining.volosevich.lesson06.task05.model.logic.Number;
+import by.epam.javatraining.volosevich.lesson06.task05.model.logic.NumberLogic;
 import by.epam.javatraining.volosevich.lesson06.task05.view.Printer;
 
 public class Task05 {
     public static void main(String[] args) {
-        int number = 44;
+        int number = 11;
 
-        Printer.print("Number = " + number + " is prime - " + Number.isPrimeNumber(number));
+        Printer.print("NumberLogic = " + number + " is prime - " + NumberLogic.isPrimeNumber(number));
     }
 }

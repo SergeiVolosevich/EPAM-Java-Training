@@ -8,13 +8,13 @@ public class CoinLogic {
 
 
     public static int countHeads(int numberOfFlips) {
-        int quantityHeads = -1;
-        if (numberOfFlips >= 0) {
-            quantityHeads = 0;
-            for (int i = 0; i < numberOfFlips; i++) {
-                if (random.nextInt(NUMBER_OF_SIDES) == 0) {
-                    quantityHeads++;
-                }
+        if (numberOfFlips < 0) {
+            return -1;
+        }
+        int quantityHeads = 0;
+        for (int i = 0; i < numberOfFlips; i++) {
+            if (random.nextInt(NUMBER_OF_SIDES) == 0) {
+                quantityHeads++;
             }
         }
         return quantityHeads;
