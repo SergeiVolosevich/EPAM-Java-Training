@@ -1,4 +1,9 @@
 package by.epam.javatraining.volosevich.maintask.maintask02.service;
 
-public class CarService {
+import by.epam.javatraining.volosevich.maintask.maintask02.model.data.Taxi;
+
+public class CarService{
+    public static void sortCarByCost(Taxi taxi) {
+
+    }
 }
