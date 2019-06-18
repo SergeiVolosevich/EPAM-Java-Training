@@ -3,111 +3,84 @@ package by.epam.javatraining.volosevich.maintask.maintask02.model.data;
 import java.util.Objects;
 
 public abstract class Car {
+
     private String mark;
     private String model;
-    private String color;
     private double cost;
-    private double power;    /* measurement in kilowatt*/
+    private double power;   /* measurement in kilowatt*/
     private double fuelConsumption;   /* measurement in liters/100km */
-    private double fuelCapacity;   /* measurement in liters*/
-    private double engineCapacity; /* measurement in liters*/
-    private int numberOfSeats;
+    private ClassOfCar segment;
 
     public Car() {
     }
 
-    public Car(String mark, String model, String color, double cost, double power, double fuelConsumption,
-               double fuelCapacity, double engineCapacity, int numberOfSeats) {
+    public Car(String mark, String model, double cost, double power, double fuelConsumption, ClassOfCar segment) {
         this.mark = mark;
         this.model = model;
-        this.color = color;
         this.cost = cost;
         this.power = power;
         this.fuelConsumption = fuelConsumption;
-        this.fuelCapacity = fuelCapacity;
-        this.engineCapacity = engineCapacity;
-        this.numberOfSeats = numberOfSeats;
+        this.segment = segment;
     }
 
     public String getMark() {
         return mark;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public double getPower() {
-        return power;
-    }
-
-    public double getFuelConsumption() {
-        return fuelConsumption;
-    }
-
-    public double getFuelCapacity() {
-        return fuelCapacity;
-    }
-
-    public double getEngineCapacity() {
-        return engineCapacity;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
     public void setMark(String mark) {
         this.mark = mark;
+    }
+
+    public String getModel() {
+        return model;
     }
 
     public void setModel(String model) {
         this.model = model;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public double getCost() {
+        return cost;
     }
 
     public void setCost(double cost) {
         this.cost = cost;
     }
 
+    public double getPower() {
+        return power;
+    }
+
     public void setPower(double power) {
         this.power = power;
+    }
+
+    public double getFuelConsumption() {
+        return fuelConsumption;
     }
 
     public void setFuelConsumption(double fuelConsumption) {
         this.fuelConsumption = fuelConsumption;
     }
 
-    public void setFuelCapacity(double fuelCapacity) {
-        this.fuelCapacity = fuelCapacity;
+    public ClassOfCar getSegment() {
+        return segment;
     }
 
-    public void setEngineCapacity(double engineCapacity) {
-        this.engineCapacity = engineCapacity;
-    }
-
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public void setSegment(ClassOfCar segment) {
+        this.segment = segment;
     }
 
     @Override
     public String toString() {
-        return new StringBuilder().append("Car{").append("mark='").append(mark).append('\'').append(", model='")
-                .append(model).append('\'').append(", color='").append(color).append('\'').append(", cost=")
-                .append(cost).append(", power=").append(power).append(", fuelConsumption=").append(fuelConsumption)
-                .append(", fuelCapacity=").append(fuelCapacity).append(", engineCapacity=").append(engineCapacity)
-                .append(", numberOfSeats=").append(numberOfSeats).append('}').toString();
+        final StringBuilder sb = new StringBuilder();
+        sb.append("mark='").append(mark).append('\'');
+        sb.append(", model='").append(model).append('\'');
+        sb.append(", cost=").append(cost);
+        sb.append(", power=").append(power);
+        sb.append(", fuelConsumption=").append(fuelConsumption);
+        sb.append(", segment=").append(segment);
+        return sb.toString();
     }
 
     @Override
@@ -118,17 +91,13 @@ public abstract class Car {
         return Double.compare(car.getCost(), getCost()) == 0 &&
                 Double.compare(car.getPower(), getPower()) == 0 &&
                 Double.compare(car.getFuelConsumption(), getFuelConsumption()) == 0 &&
-                Double.compare(car.getFuelCapacity(), getFuelCapacity()) == 0 &&
-                Double.compare(car.getEngineCapacity(), getEngineCapacity()) == 0 &&
-                getNumberOfSeats() == car.getNumberOfSeats() &&
                 getMark().equals(car.getMark()) &&
                 getModel().equals(car.getModel()) &&
-                getColor().equals(car.getColor());
+                getSegment() == car.getSegment();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getMark(), getModel(), getColor(), getCost(), getPower(), getFuelConsumption(),
-                getFuelCapacity(), getEngineCapacity(), getNumberOfSeats());
+        return Objects.hash(getMark(), getModel(), getCost(), getPower(), getFuelConsumption(), getSegment());
     }
 }
