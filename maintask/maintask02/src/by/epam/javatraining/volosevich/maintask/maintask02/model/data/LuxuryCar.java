@@ -46,7 +46,7 @@ public class LuxuryCar extends Car {
         this.amountAlcohol = amountAlcohol;
     }
 
-    public boolean getPersonalDriver() {
+    public boolean isPersonalDriver() {
         return personalDriver;
     }
 
@@ -74,13 +74,13 @@ public class LuxuryCar extends Car {
         LuxuryCar luxuryCar = (LuxuryCar) o;
         return getNumberOfMonitors() == luxuryCar.getNumberOfMonitors() &&
                 Double.compare(luxuryCar.getAmountAlcohol(), getAmountAlcohol()) == 0 &&
-                getPersonalDriver() == luxuryCar.getPersonalDriver() &&
+                isPersonalDriver() == luxuryCar.isPersonalDriver() &&
                 getInteriorColor() == luxuryCar.getInteriorColor();
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getInteriorColor(), getNumberOfMonitors(), getAmountAlcohol(),
-                getPersonalDriver());
+                isPersonalDriver());
     }
 }

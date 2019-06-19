@@ -30,7 +30,7 @@ public class SportUtilityCar extends Car {
         this.clearance = clearance;
     }
 
-    public boolean getFourWheelDrive() {
+    public boolean isFourWheelDrive() {
         return fourWheelDrive;
     }
 
@@ -38,7 +38,7 @@ public class SportUtilityCar extends Car {
         this.fourWheelDrive = fourWheelDrive;
     }
 
-    public boolean getFrameConstruction() {
+    public boolean isFrameConstruction() {
         return frameConstruction;
     }
 
@@ -73,13 +73,13 @@ public class SportUtilityCar extends Car {
         if (!super.equals(o)) return false;
         SportUtilityCar that = (SportUtilityCar) o;
         return getClearance() == that.getClearance() &&
-                getFourWheelDrive() == that.getFourWheelDrive() &&
-                getFrameConstruction() == that.getFrameConstruction() &&
+                isFourWheelDrive() == that.isFourWheelDrive() &&
+                isFrameConstruction() == that.isFrameConstruction() &&
                 Double.compare(that.getTorque(), getTorque()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getClearance(), getFourWheelDrive(), getFrameConstruction(), getTorque());
+        return Objects.hash(super.hashCode(), getClearance(), isFourWheelDrive(), isFrameConstruction(), getTorque());
     }
 }

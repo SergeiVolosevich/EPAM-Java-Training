@@ -19,7 +19,7 @@ public class SportCar extends Car {
         this.maxSpeed = maxSpeed;
     }
 
-    public boolean getRoof() {
+    public boolean isRoof() {
         return roof;
     }
 
@@ -61,13 +61,13 @@ public class SportCar extends Car {
         if (!(o instanceof SportCar)) return false;
         if (!super.equals(o)) return false;
         SportCar sportCar = (SportCar) o;
-        return getRoof() == sportCar.getRoof() &&
+        return isRoof() == sportCar.isRoof() &&
                 Double.compare(sportCar.getAcceleration(), getAcceleration()) == 0 &&
                 getMaxSpeed() == sportCar.getMaxSpeed();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getRoof(), getAcceleration(), getMaxSpeed());
+        return Objects.hash(super.hashCode(), isRoof(), getAcceleration(), getMaxSpeed());
     }
 }

@@ -2,7 +2,7 @@ package by.epam.javatraining.volosevich.maintask.maintask02.model.data;
 
 import java.util.Objects;
 
-public abstract class Car {
+public class Car {
 
     private String mark;
     private String model;

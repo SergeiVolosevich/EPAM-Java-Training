@@ -32,7 +32,7 @@ public class FamilyCar extends Car {
         this.numberAdditionalSeats = numberAdditionalSeats;
     }
 
-    public boolean getAirCondition() {
+    public boolean isAirCondition() {
         return airCondition;
     }
 
@@ -48,7 +48,7 @@ public class FamilyCar extends Car {
         this.numberOfAirbags = numberOfAirbags;
     }
 
-    public boolean getChildSeat() {
+    public boolean isChildSeat() {
         return childSeat;
     }
 
@@ -84,15 +84,15 @@ public class FamilyCar extends Car {
         if (!super.equals(o)) return false;
         FamilyCar familyCar = (FamilyCar) o;
         return getNumberAdditionalSeats() == familyCar.getNumberAdditionalSeats() &&
-                getAirCondition() == familyCar.getAirCondition() &&
+                isAirCondition() == familyCar.isAirCondition() &&
                 getNumberOfAirbags() == familyCar.getNumberOfAirbags() &&
-                getChildSeat() == familyCar.getChildSeat() &&
+                isChildSeat() == familyCar.isChildSeat() &&
                 getTrunkVolume() == familyCar.getTrunkVolume();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getNumberAdditionalSeats(), getAirCondition(), getNumberOfAirbags(),
-                getChildSeat(), getTrunkVolume());
+        return Objects.hash(super.hashCode(), getNumberAdditionalSeats(), isAirCondition(), getNumberOfAirbags(),
+                isChildSeat(), getTrunkVolume());
     }
 }
